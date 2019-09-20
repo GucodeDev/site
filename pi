@@ -1,36 +1,58 @@
+
+public class Data {
+byte dia  = 1;
+byte mes  = 1;
+short ano = 1;
+
+public void dia (byte dia) {
+	
+}
+
+public byte mes (byte mes) {
+	switch (mes) {
+	//meses com 31 dias
+	case 1: 31 break;
+	case 3:break;
+	case 5:break;
+	case 7:break;
+	case 8:break;
+	case 10:break;
+	case 12:break;
+	//meses com 30 dias
+	case 2:break; // 28 ou 29 dias
+	case 4:break;
+	case 6:break;
+	case 9:break;
+	case 11:break;
+				
+	}
+	return mes;
+}
+}
+
+
+
+
+**/*/*//////////////////////////////////
+
 public class Principal {
 
 	public static void main(String[] args) {
-		Calendario cal = new Calendario();
-		cal.adDia();
-		cal.adMes();
-		
-	}
+Data d = new Data();
 
-}
-//////////////////////////////////////////////////////////////////
-public class Calendario {
-	byte dia = 0;
-	byte mes = 01;
-	short ano = 1970;
 
-	public void adDia() {
-
-		while (dia <= 30) {
-			dia += 1;
-			System.out.printf("\n%d/%d/%d\n", dia, mes, ano);
-
-		}
-	
-	}
-
-	public void adMes() {
-
-		while (mes <= 11) {
-			mes += 1;
-
-			System.out.printf("\n%d/%d/%d\n", dia, mes, ano);
-
-		}
 	}
 }
+
+
+-*/-*/*/*-/-*/-*
+
+1 = 31
+3 = 31
+5 = 31
+7 = 31
+8 = 31
+10 = 31
+12= 	31
+
+246911
