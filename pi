@@ -1,0 +1,36 @@
+public class Principal {
+
+	public static void main(String[] args) {
+		Calendario cal = new Calendario();
+		cal.adDia();
+		cal.adMes();
+		
+	}
+
+}
+//////////////////////////////////////////////////////////////////
+public class Calendario {
+	byte dia = 0;
+	byte mes = 01;
+	short ano = 1970;
+
+	public void adDia() {
+
+		while (dia <= 30) {
+			dia += 1;
+			System.out.printf("\n%d/%d/%d\n", dia, mes, ano);
+
+		}
+	
+	}
+
+	public void adMes() {
+
+		while (mes <= 11) {
+			mes += 1;
+
+			System.out.printf("\n%d/%d/%d\n", dia, mes, ano);
+
+		}
+	}
+}
