@@ -1,58 +1,134 @@
 
-public class Data {
-byte dia  = 1;
-byte mes  = 1;
-short ano = 1;
-
-public void dia (byte dia) {
-	
-}
-
-public byte mes (byte mes) {
-	switch (mes) {
-	//meses com 31 dias
-	case 1: 31 break;
-	case 3:break;
-	case 5:break;
-	case 7:break;
-	case 8:break;
-	case 10:break;
-	case 12:break;
-	//meses com 30 dias
-	case 2:break; // 28 ou 29 dias
-	case 4:break;
-	case 6:break;
-	case 9:break;
-	case 11:break;
-				
-	}
-	return mes;
-}
-}
+package eda;
 
 
 
 
-**/*/*//////////////////////////////////
 
 public class Principal {
 
 	public static void main(String[] args) {
-Data d = new Data();
-
-
+		
+		Data d = new Data();
+d.solicitarDados();
 	}
 }
 
+=================================================================================================================================
 
--*/-*/*/*-/-*/-*
 
-1 = 31
-3 = 31
-5 = 31
-7 = 31
-8 = 31
-10 = 31
-12= 	31
+package eda;
 
-246911
+import java.util.Scanner;
+
+public class Data {
+	Scanner sc = new Scanner(System.in);
+	byte dia = 1;
+	byte mes = 1;
+	short ano = 1;
+	
+	public void solicitarDados(){
+		System.out.println("Informe a data");
+		dia=sc.nextByte();
+		mes=sc.nextByte();
+		ano=sc.nextShort();
+		
+		validarAno(ano);
+		validarMes(mes);
+		validarDia(dia);
+	}
+
+	// Validar se ano está no intervalo correto.
+
+	public short validarAno(short ano) {
+		if (ano > 0 && ano <= 9999) {
+			//return this.ano = ano;
+			return 1;
+		} else
+			return -1;
+
+	}
+
+	// Validar se o ano atende aos parametros para ser BISSEXTO.
+	public short checarAnoBissexto(short ano) {
+		if (ano % 4 == 0 && ano % 100 != 0 && ano % 400 == 0) {
+			return this.ano=ano;
+		} else
+			return -1;
+	}
+
+	// Validar se dia está no intervalo correto.
+	public byte validarDia(byte dia) {
+
+		if (dia > 0 && dia <= 31) {
+			return this.dia=dia;
+		} else
+			return -1;
+
+	}
+
+	/* Verifica se o mês é de 28, 29, 30 ou 31 dias */
+	public byte validarMes(byte mes) {
+		switch (mes) {
+
+		// meses com 31 dias
+
+		case 1:
+			if (validarAno(ano) != -1) {
+
+					if (validarDia(dia) != -1) {
+
+						//this.dia = dia;
+						
+					
+				}
+
+			} else {
+				System.out.println("valor para o ano incorrento");
+			}
+			break;
+		case 3:
+			break;
+		case 5:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 10:
+			break;
+		case 12:
+			break;
+
+		// Mês de fevereiro verifica se é de 28 ou 29 dias
+		case 2:
+			if (validarAno(ano) != -1) {
+
+				if (checarAnoBissexto(ano) == 1) {
+					this.ano = ano;
+					if (validarDia(dia) != -1) {
+
+						this.dia = dia;
+
+					}
+				}
+
+			} else {
+				System.out.println("valor para o ano incorrento");
+			}
+			break;
+		// meses com 30 dias
+		case 4:
+			break;
+		case 6:
+			break;
+		case 9:
+			break;
+		case 11:
+			break;
+
+		}
+		return mes;
+	}
+
+}
